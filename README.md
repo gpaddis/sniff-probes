@@ -13,7 +13,7 @@ For a creative application of probe request capture, see [ProbeKit](https://gith
 ```bash
 # Type "ifconfig" to list available network devices.
 # Wireless devices generally start with a "w"
-IFACE=wlan0 ./sniff-probes.sh
+./sniff-probes.sh wlan0
 ```
 
 ```
@@ -29,12 +29,12 @@ IFACE=wlan0 ./sniff-probes.sh
 ```
 Requires **tcpdump** and **gawk** (GNU awk). Both of these packages are installed on many *nix systems by default, but if they aren't you will have to install them manually. Your wireless device must also support monitor mode. Here is [a list of WiFi cards that support monitor mode](https://www.wirelesshack.org/best-kali-linux-compatible-usb-adapter-dongles-2016.html) (2018).
 
-Prints `timetamp`, `signal strength`, `sender MAC address` and `SSID` to screen. Saves output as a space-delimeted "csv" to `probes.txt` by default.
+Prints `timestamp`, `signal strength`, `sender MAC address` and `SSID` to screen.
 
 Additional options:
 
 ```bash
-IFACE=wlan0 OUTPUT=output.txt CHANNEL_HOP=1 ./sniff-probes.sh
+CHANNEL_HOP=1 ./sniff-probes.sh
 ```
 
 `CHANNEL_HOP=1` enables channel hoping on `IFACE` every two seconds. This is used to increase the number of probes captured. Disabled by default.
